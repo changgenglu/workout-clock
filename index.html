@@ -17,8 +17,7 @@
   <div id="app" class="container">
     <div id="myButton">
       <div id="main-view" @click="start()">
-
-        <i v-if="!countdown" class="fa-sharp fa-thin fa-clock fa-2xl" id="clock-icon"></i>
+        <i v-if="!countdown" class="fa-regular fa-clock" id="clock-icon"></i>
         <span id="left-time" v-else>{{ countdown }}</span>
 
       </div>
@@ -69,7 +68,6 @@
             this.countdown--;
             if (this.countdown <= 0) {
               clearInterval(this.countdownInterval);
-              this.countdown = null;
               this.playSound();
             }
           }, 1000);
@@ -77,6 +75,7 @@
         playSound() {
           var audio = new Audio('test.mp3');
           audio.play();
+          this.countdown = null;
         },
       },
     });
@@ -88,6 +87,10 @@
     body {
       background-color: #2c2c2c;
     }
+/* 
+    * {
+      outline: 1px solid red;
+    } */
 
     #myButton {
       width: 100%;
