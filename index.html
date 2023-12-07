@@ -72,8 +72,6 @@
             this.countdown--;
             if (this.countdown <= 0) {
               this.playSound();
-              clearInterval(this.countdownInterval);
-              this.countdown = null;
             }
           }, 1000);
         },
@@ -81,18 +79,17 @@
           console.log('play')
           var audio = new Audio('./test.mp3');
           audio.play();
+          clearInterval(this.countdownInterval);
+          this.countdown = null;
         },
       },
     });
-
-
   </script>
 
   <style>
     body {
       background-color: #2c2c2c;
     }
-
 
     #myButton {
       width: 100%;
